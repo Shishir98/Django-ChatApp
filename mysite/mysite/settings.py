@@ -119,9 +119,17 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
+ASGI_APPLICATION = 'mysite.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1',  6379)],
+        },
+    },
+}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files
 STATIC_URL = '/static/'
 # ASGI_APPLICATION = 'mysite.asgi.application'
-ASGI_APPLICATION = 'mysite.asgi.application'
+# ASGI_APPLICATION = 'mysite.asgi.application'
